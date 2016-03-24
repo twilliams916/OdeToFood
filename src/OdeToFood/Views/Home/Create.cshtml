@@ -1,0 +1,30 @@
+﻿@model Restaurant
+@{ 
+    ViewBag.Title = "Create";
+}
+    <h1>Create</h1>
+    @using (Html.BeginForm())
+    {
+
+        <div>
+            @Html.LabelFor(r => r.Name)
+            @Html.TextBoxFor(r => r.Name)
+            @Html.ValidationMessageFor(r => r.Name)
+        </div>
+        <div>
+            @Html.LabelFor(r => r.Cuisine)
+            @Html.DropDownListFor(r => r.Cuisine, Html.GetEnumSelectList(typeof(CuisineType)))
+            @Html.ValidationMessageFor(r=>r.Cuisine)
+        </div>
+        <input type="submit" value="Save" />
+    }
+
+
+    @Html.ActionLink("Home", "Index")
+@section footer {
+    <div></div>
+}
+
+
+
+
